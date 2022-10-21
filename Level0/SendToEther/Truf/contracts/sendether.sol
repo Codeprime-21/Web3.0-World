@@ -9,12 +9,12 @@ contract sendether{
         owner = msg.sender;
     }
     modifier onlyowner(){
-        require(msg.sender == owner,"You r not the owner ");
+        require(msg.sender == owner,"You are not the owner ");
         _;
     }
 
     function send(address payable to_sent) payable public {
-        require(msg.sender.balance >=msg.value,"You  don't have the sufficient amount");
+        require(msg.sender.balance >=msg.value,"You  don't have sufficient amount");
 
         to_sent.transfer(msg.value);
     }
